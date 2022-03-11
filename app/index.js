@@ -3,7 +3,7 @@
 const ID = await fetch("https://random-word-api.herokuapp.com/word?number=2&swear=0").then(response=>response.json());
 const user = "" + ID[0]+ "" + ID[1]
     const realtime = new Ably.Realtime({
-        key: "inf2Cg.5ckMeA:yOcGE03_k3DzuvdrGFS-G1Cr_J8r9pRSbopgb4Z_fs0", /* ADD YOUR API KEY HERE */
+        key: "", /* ADD YOUR API KEY HERE LOCAL TESTING ONLY */
         clientId: user, /* This is who you will appear as in the presence set */
         closeOnUnload: true // See https://support.ably.io/solution/articles/3000059875-why-don-t-presence-members-leave-as-soon-as-i-close-a-tab-
       });
@@ -87,8 +87,7 @@ const user = "" + ID[0]+ "" + ID[1]
     const itter = setInterval(()=>{
       for (const [key, value] of Object.entries(inbount_points)) {
         if(key === user){}
-        else{
-      //  console.log(`${key}: ${value}`);
+        else{ 
         addOrMove(key,value.shift())
         }
       }
